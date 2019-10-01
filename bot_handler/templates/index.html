@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ bot_name }}: Login</title>
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" type="image/x-icon" href="/static/bot_handler/favicon.ico">
+    {% load compress %}
+    {% compress css %}
+        <link rel="stylesheet" type="text/css" href="/static/bot_handler/css/main.css">
+    {% endcompress %}
+
+    {% compress js %}
+        <script>var logged_in ={{logged_in}};
+        var bot_name = "{{bot_name}}";
+        </script>
+        <script src="/static/bot_handler/js/index.js"></script>
+    {% endcompress %}
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <div class="container">
+        <h1>Welcome</h1>
+        <form style="{{ form_style }}" id="login-form" class="form">
+            <input id="login-input" type="text" placeholder="Username">
+            <input id="pass-input" type="password" placeholder="Password">
+            <button type='submit' id="login-button" onclick="return login_button();">Login</button>
+        </form>
+    </div>
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div id="top-box" class="top-box">
+        {#                    todo красивый sidebar#}
+        <div id="sidebar" class="menu-sidebar js-sidebar">
+            <div class="close js-close"
+                 onclick="document.getElementById('sidebar').setAttribute('class', 'menu-sidebar js-sidebar')">
+                <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.245 4.015a.808.808 0 0 1 0 1.139l-6.276 6.27a.81.81 0 0 0 0 1.14l6.273 6.272a.81.81 0 0 1 0 1.14l-2.285 2.277a.814.814 0 0 1-1.142 0l-6.271-6.271a.81.81 0 0 0-1.141 0l-6.276 6.267a.81.81 0 0 1-1.141 0l-2.282-2.28a.81.81 0 0 1 0-1.14l6.278-6.269a.81.81 0 0 0 0-1.14L1.709 5.147a.808.808 0 0 1 0-1.14l2.284-2.278a.813.813 0 0 1 1.142.001L11.405 8a.81.81 0 0 0 1.141.001l6.276-6.267a.812.812 0 0 1 1.141 0l2.282 2.281z"></path>
+                </svg>
+            </div>
+            <b>Добро пожаловать, </b><br>
+            <p id="login-box" style="font-family:Tahoma, sans-serif; font-weight:bold">{{ login }}</p>
+            <br><br>
+            <a class="link" onclick="return toggleFullScreen();">Полный экран</a>
+            <a class="link" onclick="return logout();">Выйти</a>
+        </div>
+        <div class="nav-bar">
+            {#        <a class="homepage" href="/">Главная</a>#}
+            <a class="menu js-menu"
+               onclick="document.getElementById('sidebar').setAttribute('class', 'menu-sidebar js-sidebar -open')"></a>
+        </div>
+        <div class="js-chat">
+            <div class="chat-box js-window">
+                <div id='chat_box' class="chat js-scroll" style="">
+                    <div id='messages' class="messages"></div>
+                </div>
+                <div class="input">
+                    <input type="text" id="input" class="text js-input" placeholder="Введите сообщение и нажмите ввод"
+                           tabindex="1" maxlength="140" onkeypress="return runScript(event)"><!--if-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

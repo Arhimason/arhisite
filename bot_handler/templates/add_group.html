@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+
+
+    </style>
+
+</head>
+<body>
+<div class="alert alert-{{ alert_type }}" role="alert" style="display:{{ display }};">
+    {{ alert_text }}
+</div>
+<form class="form-horizontal" method="POST">{% csrf_token %}
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend></legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <div class="col-md-5">
+                <input id="access_token" name="access_token" type="text"
+                       placeholder="8063907c08687afe32438063907c08687afe32438063907c08687afe3243b8c95d0d4d22ec67ee9cba50c"
+                       class="form-control input-md" required="">
+                <span class="help-block">Управление-&gt;Работа с API-&gt;Ключи доступа-&gt;Создать</span>
+            </div>
+        </div>
+
+        <!-- Button (Double) -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="add_group"></label>
+            <div class="col-md-8">
+                <button id="add_group" type="submit" value="add_group" name="action" class="btn btn-success">Добавить
+                    группу
+                </button>
+                <button id="delete_group" type="submit" value="delete_group" name="action" class="btn btn-danger">
+                    Удалить группу
+                </button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+</body>
