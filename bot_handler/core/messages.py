@@ -47,7 +47,7 @@ class AbstractMessage:
         try:
             return self._request_to_edit(data)
         except:
-            self.error_log_add('Editing', request=data, additional=get_exc_info())
+            self.error_log_add('Editing message', request=data, additional=get_exc_info())
             return False
 
     def _send(self, data):
@@ -61,7 +61,7 @@ class AbstractMessage:
             msg_id = self._request_to_send(data)
             return msg_id
         except:
-            self.error_log_add('Editing', request=data, additional=get_exc_info())
+            self.error_log_add('Sending message', request=data, additional=get_exc_info())
             return -1
 
     def _request_to_send(self, data):

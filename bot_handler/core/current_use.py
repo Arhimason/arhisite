@@ -14,7 +14,6 @@ from bot_handler.utils.argument_parser import WrongArguments
 from bot_handler.utils.storage import StorageC
 from lib.Tools import get_exc_info
 
-telebot.apihelper.proxy = CONFIG.TG_PROXY
 
 cmds_list = load_commands()
 

@@ -9,10 +9,12 @@ from django.views.decorators.csrf import csrf_exempt
 from bot_handler import CONFIG
 from bot_handler.core.current_use import CurrentUse
 from bot_handler.core.messages import VKMessage, TGMessage, WEBMessage, AbstractMessage
-from bot_handler.core.сonverters import web_to_vk, tg_to_vk
+from bot_handler.core.converters import web_to_vk, tg_to_vk
 from bot_handler.models import ConnectedGroup, User
 from bot_handler.utils import jwt_helper
 from bot_handler.utils.storage import StorageC
+
+telebot.apihelper.proxy = CONFIG.TG_PROXY
 
 
 # todo default group
@@ -190,7 +192,7 @@ class WEBMessenger(AbstractMessenger):
 
     def get_user(self, current_use):
         if current_use.user:
-            return current_use.user
+            return current_use.user, False
         return User.objects.get_or_create(id=current_use.from_id)
 
     def handle_request(self, text_data, ws):

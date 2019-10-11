@@ -10,7 +10,7 @@ def remove_keys(dct, keys):
     return dct
 
 
-def web_to_vk(event):
+def web_to_vk(_, event):
     obj = event
     result = {
         "type": "message_new",
@@ -34,7 +34,7 @@ def web_to_vk(event):
     return result
 
 
-def tg_to_vk(event):
+def tg_to_vk(_, event):
     if 'message' in event:
         obj = event['message']
         typee = 'message_new'
